@@ -1,4 +1,4 @@
-const http = require("http");
+const http = require("http"); // http => Hypertext Transfer Protocol
 const port = 1018;
 
 const portHandler = (req,res) =>{
