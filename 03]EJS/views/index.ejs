@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/addData" method="post">
+        <input type="text" placeholder="Enter Your Name" name="name">
+        <input type="text" placeholder="Enter Your City" name="city">
+        <button type="submit">Submit</button>
+    </form>
+    <center>
+        <h1>Server Started</h1>
+        <table border="2" width="40%">
+            <thead>
+                <tr>
+                    <td>
+                        <center>Id</center>
+                    </td>
+                    <td>
+                        <center>Name</center>
+                    </td>
+                    <td>
+                        <center>City</center>
+                    </td>
+                    <td colspan="2">
+                        <center>Action</center>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.map((e,i)=>{ %>
+                    <tr>
+                        <td>
+                            <center>
+                                <%=e.id%>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <%=e.name%>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <%=e.city%>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <a href="/editData/<%=e.id%>">
+                                    <button>
+                                        Edit
+                                    </button>
+                                </a>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <a href="/deleteData?id=<%=e.id%>">
+                                    <button>
+                                        Delete
+                                    </button>
+                                </a>
+                            </center>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
