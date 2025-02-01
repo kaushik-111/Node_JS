@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: black;
+            padding: 30px;
+            height: 100vh;
+        }
+
+        /* Form Styling */
+        form {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            animation: formFadeIn 0.6s ease-out;
+        }
+
+        form input,
+        form button {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #555;
+            transition: all 0.3s ease;
+        }
+
+        form input:focus,
+        form button:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.7);
+        }
+
+        form button {
+            background-color: #5a8f7d;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #467a63;
+            transform: scale(1.05);
+        }
+
+        /* Table Container */
+        .table-container {
+            margin-top: 40px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        td {
+            color: #333;
+        }
+
+        td a {
+            text-decoration: none;
+        }
+
+        td button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        td button:hover {
+            background: linear-gradient(135deg, #2980b9, #27ae60);
+            transform: scale(1.05);
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+
+        /* Keyframe Animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Fade-in Animation */
+        @keyframes formFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 28px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Book Collection</h1>
+
+    <form action="/addData" method="post">
+        <input type="url" placeholder="Enter Your URL" name="imgUrl">
+        <input type="text" placeholder="Enter Your Name" name="name">
+        <input type="text" placeholder="Enter Your Author Name" name="autherName">
+        <input type="number" placeholder="Enter Your Price" name="price">
+        <input type="number" placeholder="Enter Your Sold Copies" name="soldCopies">
+        <input type="datetime-local" placeholder="Enter Your Publish Date" name="publishDate">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Sold Copies</th>
+                    <th>Publish Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((e) => { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.autherName %></td>
+                    <td>$<%= e.price %></td>
+                    <td><%= e.soldCopies %></td>
+                    <td><%= e.publishDate %></td>
+                    <td>
+                        <a href="/editData/<%= e.id %>"><button>Edit</button></a>
+                        <a href="/deleteData?id=<%= e.id %>"><button class="delete-btn">Delete</button></a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
