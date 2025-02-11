@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../public/css/adddata.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Event</h2>
+        <form action="/submitEvent" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label>Event Image</label>
+                <input type="file" name="image">
+            </div>
+            <div>
+                <label>Title</label>
+                <input type="text" placeholder="Enter Your Movie Title" name="title" required>
+            </div>
+            <div>
+                <label>Location</label>
+                <input type="text" placeholder="Enter Your Location" name="location" required>
+            </div>
+            <div>
+                <label>Time</label>
+                <input type="datetime-local" placeholder="Enter Your Time" name="time" required>
+            </div>
+            <div>
+                <label>Price</label>
+                <input type="number" placeholder="Enter Your Price" name="price" required>
+            </div>
+            <button type="submit">Submit Event</button>
+        </form>
+    </div>
+</body>
+</html>

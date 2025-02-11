@@ -1,0 +1,81 @@
+/* General Body Styling */
+body {
+    min-height: 100vh;
+    background-color: #1a1625;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Styling */
+.container {
+    background-color: #232038;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 32rem;
+}
+
+/* Heading Styling */
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    color: #d1d5db;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Fields Styling */
+input[type="file"],
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #1a1625;
+    border: 1px solid #4b5563;
+    border-radius: 0.25rem;
+    outline: none;
+    color: white; /* Ensure text color is white */
+}
+
+/* Placeholder Text Color */
+input::placeholder {
+    color: white;
+}
+
+/* Input Focus Styling */
+input[type="file"]:focus,
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+input[type="number"]:focus {
+    border: 2px solid #9b8f25; /* Adjust focus border color */
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    background-color: #9b8f25;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #8a7f20;
+}
+
+/* Spacing Between Elements */
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}

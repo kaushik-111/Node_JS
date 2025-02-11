@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="/public/css/index.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="/public/images/favicon-196x196-removebg-preview.png" alt="" srcset="">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
+                <button class="nav-button active">
+                    <i class="ph ph-music-notes"></i>
+                    Events
+                </button>
+                <button class="nav-button">
+                    <i class="ph ph-film-slate"></i>
+                    Movies
+                    <span class="coming-soon">Coming soon</span>
+                </button>
+                <button class="nav-button">
+                    <i class="ph ph-fork-knife"></i>
+                    Dining
+                    <span class="coming-soon">Coming soon</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+
+            <!-- Right Section -->
+            <div class="right-section">
+                <a href="/addData">
+                    <button class="add-movie-btn">
+                        <i class="ph ph-plus-circle"></i>
+                        Add Movie
+                    </button>
+                </a>
+                <button class="user-btn">
+                    <i class="ph ph-user-circle"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="close-menu" class="close-menu-btn">
+            <i class="ph ph-x"></i>
+        </button>
+        <div class="mobile-nav">
+            <button class="mobile-nav-button active">Events</button>
+            <button class="mobile-nav-button">Movies</button>
+            <button class="mobile-nav-button">Dining</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">
+                <i class="ph ph-bank"></i>
+                IDFC FIRST Bank
+            </p>
+            <h1 class="hero-title">INDIA VS ENGLAND SERIES</h1>
+            <p class="hero-description">
+                Get ready for an exhilarating clash as India faces England in the much-anticipated series. Witness your
+                favourite players in action, delivering thrilling moments, big hits, and intense competition.
+            </p>
+            <h2 class="hero-cta">
+                <i class="ph ph-ticket"></i>
+                GRAB YOUR TICKETS NOW!
+            </h2>
+
+            <!-- Carousel Section -->
+            <div class="carousel">
+                <div class="carousel-content">
+                    <% carouselItems.map((e, i) => { %>
+                        <div class="carousel-item">
+                            <!-- Background Pattern -->
+                            <div class="carousel-item-bg">
+                                <div class="bg-pattern-top">
+                                    <svg viewBox="0 0 100 100">
+                                        <path d="M0 0 L100 0 L50 100 Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div class="bg-pattern-bottom">
+                                    <svg viewBox="0 0 100 100">
+                                        <path d="M0 100 L100 100 L50 0 Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+            
+                            <!-- Content -->
+                            <div class="carousel-item-content">
+                                <!-- Logos -->
+                                <div class="carousel-item-logo">
+                                    <img src="/<%= e.image %>" alt="Team Logo">
+                                </div>
+            
+                                <!-- Match Details -->
+                                <div class="carousel-item-details">
+                                    <h2 class="carousel-item-title"><%= e.title %></h2>
+                                    <div class="carousel-item-date">
+                                        <i class="ph ph-calendar"></i>
+                                        <span><%= e.date %> | <%= e.time %> Onwards</span>
+                                    </div>
+                                    <div class="carousel-item-location">
+                                        <i class="ph ph-map-pin"></i>
+                                        <span><%= e.location %></span>
+                                    </div>
+                                </div>
+            
+                                <!-- Price and CTA -->
+                                <div class="carousel-item-cta">
+                                    <div class="carousel-item-price">
+                                        <span>Starting from</span>
+                                        <div>₹ <%= e.price %></div>
+                                    </div>
+                                    <div class="carousel-item-buttons">
+                                        <a href="/editData/<%=e._id%>">
+                                            <button class="edit-btn">EDIT</button>
+                                        </a>
+                                        <a href="/deleteData/<%=e._id%>">
+                                            <button class="delete-btn">DELETE</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            
+                <!-- Carousel Navigation Buttons -->
+                <button class="carousel-button carousel-prev">
+                    <i class="ph ph-caret-left"></i>
+                </button>
+                <button class="carousel-button carousel-next">
+                    <i class="ph ph-caret-right"></i>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- ... Footer content remains same ... -->
+
+    <script src="script.js"></script>
+</body>
+</html>
