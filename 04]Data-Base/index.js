@@ -3,7 +3,9 @@ const port = 1008;
 const path = require("path")
 
 const app = express();
-app.set("view engine","ejs")
+app.set("view engine","ejs");
+
+
 app.use("/public",express.static(path.join(__dirname,"public")))
 
 const middle = (req,res,next)=>{
