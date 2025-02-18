@@ -1,33 +1,33 @@
-const express = require('express')
-const port = 4444
-const path = require('path')
-const app = express()
-const cookie = require('cookie-parser')
-const passport = require("passport");
+const express = require("express");
+const path = require("path");
+const port = 1234;
+const cookie = require("cookie-parser");
 const session = require("express-session");
-const db = require('./config/dataBase')
+
+const app = express();
+const db = require("./config/dataBase");
+const passport = require("passport");
 
 app.use(
-  session({
-    name:"local",
-    secret:"rnw",
-    resave:true,
-    saveUninitialized:false,
-    cookie:{maxAge:20000},
-  })
+    session({
+        name: "local",
+        secret : "admin",
+        resave : true,
+        saveUninitialized : false,
+        cookie : {maxAge : 1000 * 60 * 10}
+    })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('view engine', 'ejs')
-app.use(express.urlencoded())
-app.use(cookie())
-app.use(express.static(path.join(__dirname, 'public')))
-app.use('/upload', express.static(path.join(__dirname, 'upload')))
+app.set("view engine", "ejs");
+app.use(express.urlencoded());
+app.use(cookie());
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/upload", express.static(path.join(__dirname, "upload")));
 
-app.use('/', require('./route/route'))
-
+app.use("/", require("./route/route"));
 app.listen(port, err => {
-  err ? console.log(err) : console.log('Server started on port:-', port)
+    err ? console.log("Error : ", err) : console.log("Server is running on port : ", port)
 })

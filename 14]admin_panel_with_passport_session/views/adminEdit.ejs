@@ -1,341 +1,148 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/libs/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/libs/jquery-minicolors/jquery.minicolors.css">
-    <link rel="stylesheet" type="text/css"
-        href="assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/libs/quill/dist/quill.snow.css">
-    <link href="/dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
 </head>
-
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+        
+        <!-- Sidebar Include -->
+        <%- include("./partial/sidebar.ejs")%>
 
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <%- include("./partial/header.ejs")%>
-            <!-- ============================================================== -->
-            <!-- End Topbar header -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Left Sidebar - style you can find in sidebar.scss  -->
-            <!-- ============================================================== -->
-            <%- include("./partial/sidebar.ejs")%>
-                <!-- ============================================================== -->
-                <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Page wrapper  -->
-                <!-- ============================================================== -->
-                <div class="page-wrapper">
-                    <!-- ============================================================== -->
-                    <!-- Bread crumb and right sidebar toggle -->
-                    <!-- ============================================================== -->
-                    <div class="page-breadcrumb">
-                        <div class="row">
-                            <div class="col-12 d-flex no-block align-items-center">
-                                <h4 class="page-title">Form Basic</h4>
-                                <div class="ml-auto text-right">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- End Bread crumb and right sidebar toggle -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Container fluid  -->
-                    <!-- ============================================================== -->
-                    <div class="container-fluid">
-                        <!-- ============================================================== -->
-                        <!-- Start Page Content -->
-                        <!-- ============================================================== -->
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <form class="form-horizontal" action="/adminUpdate" method="post"
-                                        enctype="multipart/form-data">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Personal Info</h4>
+        <div class="body-wrapper">
+            <!-- Header Include -->
+            <%- include("./partial/header.ejs")%>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title fw-semibold mb-4">Edit Admin</h5>
+                                <form action="/adminUpdate" method="POST" enctype="multipart/form-data">
+                                    <div class="row">
 
-                                            <!-- File Upload -->
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 text-right control-label col-form-label">File
-                                                    Upload</label>
-                                                <div class="col-md-9">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input"
-                                                            id="validatedCustomFile" name="image">
-                                                        <label class="custom-file-label"
-                                                            for="validatedCustomFile">Choose file...</label>
-                                                        <div class="invalid-feedback">Example invalid custom file
-                                                            feedback</div>
+                                        <input type="text" name="id" value="<%= admin._id %>" hidden>
+                                        <!-- Profile Image -->
+                                        <div class="col-12 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Profile Image</label>
+                                                <input type="file" name="image" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <!-- First Name & Last Name -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" name="firstName" value="<%= admin.firstName %>" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" name="lastName" value="<%= admin.lastName %>" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Email & Password -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" name="email" class="form-control" value="<%= admin.email %>" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" name="password" class="form-control" value="<%= admin.password %>" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- City Dropdown -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">City</label>
+                                                <select name="city" class="form-select" required>
+                                                    <option value="" disabled selected>Select City</option>
+                                                    <option value="mumbai" <%= admin.city == 'mumbai' ? 'selected' : '' %>>Mumbai</option>
+                                                    <option value="delhi" <%= admin.city == 'delhi' ? 'selected' : '' %>>Delhi</option>
+                                                    <option value="bangalore" <%= admin.city == 'bangalore' ? 'selected' : '' %>>Bangalore</option>
+                                                    <option value="hyderabad" <%= admin.city == 'hyderabad' ? 'selected' : '' %>>Hyderabad</option>
+                                                    <option value="chennai" <%= admin.city == 'chennai' ? 'selected' : '' %>>Chennai</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Gender Radio Buttons -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="mb-3">
+                                                <label class="form-label d-block">Gender</label>
+                                                <div class="d-flex gap-4">
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="gender" value="male" <%= admin.gender == 'male' ? 'checked' : '' %> required>
+                                                        <label class="form-check-label">Male</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="gender" value="female" <%= admin.gender == 'female' ? 'checked' : '' %> required>
+                                                        <label class="form-check-label">Female</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" class="form-check-input" name="gender" value="other" <%= admin.gender == 'other' ? 'checked' : '' %> required>
+                                                        <label class="form-check-label">Other</label>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <input type="text" name="id" value="<%= admin.id%>" hidden>
-                                            <!-- First Name -->
-                                            <div class="form-group row">
-                                                <label for="fname"
-                                                    class="col-sm-3 text-right control-label col-form-label">First
-                                                    Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="fname"
-                                                        placeholder="First Name Here" name="firstName"
-                                                        value="<%= admin.firstName %>">
+                                        <!-- Hobbies -->
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label">Hobbies</label>
+                                            <div class="d-flex gap-4">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="hobbies[]" value="reading" <%= admin.hobbies.includes('reading') ? 'checked' : '' %>>
+                                                    <label class="form-check-label">Reading</label>
                                                 </div>
-                                            </div>
-
-                                            <!-- Last Name -->
-                                            <div class="form-group row">
-                                                <label for="lname"
-                                                    class="col-sm-3 text-right control-label col-form-label">Last
-                                                    Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="lname"
-                                                        placeholder="Last Name Here" name="lastName"
-                                                        value="<%= admin.lastName %>">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="hobbies[]" value="sports" <%= admin.hobbies.includes('sports') ? 'checked' : '' %>>
+                                                    <label class="form-check-label">Sports</label>
                                                 </div>
-                                            </div>
-
-                                            <!-- Email -->
-                                            <div class="form-group row">
-                                                <label for="email"
-                                                    class="col-sm-3 text-right control-label col-form-label">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="email" class="form-control" id="email"
-                                                        placeholder="Email Here" name="email"
-                                                        value="<%= admin.email %>">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="hobbies[]" value="music" <%= admin.hobbies.includes('music') ? 'checked' : '' %>>
+                                                    <label class="form-check-label">Music</label>
                                                 </div>
-                                            </div>
-
-                                            <!-- Password -->
-                                            <div class="form-group row">
-                                                <label for="password"
-                                                    class="col-sm-3 text-right control-label col-form-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" class="form-control" id="password"
-                                                        placeholder="Password Here" name="password"
-                                                        value="<%= admin.password %>">
-                                                </div>
-                                            </div>
-
-                                            <!-- City Dropdown (Auto-Selected) -->
-                                            <div class="form-group row">
-                                                <label
-                                                    class="col-sm-3 text-right control-label col-form-label">City</label>
-                                                <div class="col-md-9">
-                                                    <select class="select2 form-control custom-select" name="city">
-                                                        <option>Select</option>
-                                                        <option value="Rajkot" <%=admin.city==="Rajkot" ? "selected"
-                                                            : "" %>>Rajkot</option>
-                                                        <option value="Junagadh" <%=admin.city==="Junagadh" ? "selected"
-                                                            : "" %>>Junagadh</option>
-                                                        <option value="Jamnagar" <%=admin.city==="Jamnagar" ? "selected"
-                                                            : "" %>>Jamnagar</option>
-                                                        <option value="Ahmedabad" <%=admin.city==="Ahmedabad"
-                                                            ? "selected" : "" %>>Ahmedabad</option>
-                                                        <option value="Bhavnagar" <%=admin.city==="Bhavnagar"
-                                                            ? "selected" : "" %>>Bhavnagar</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <!-- Gender Radio Buttons (Auto-Selected) -->
-                                            <div class="form-group row">
-                                                <label
-                                                    class="col-sm-3 text-right control-label col-form-label">Gender</label>
-                                                <div class="col-md-9">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="male"
-                                                            name="gender" value="Male" <%=admin.gender==="Male"
-                                                            ? "checked" : "" %>>
-                                                        <label class="custom-control-label" for="male">Male</label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="female"
-                                                            name="gender" value="Female" <%=admin.gender==="Female"
-                                                            ? "checked" : "" %>>
-                                                        <label class="custom-control-label" for="female">Female</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Hobbies (Checkboxes - Auto-Selected) -->
-                                            <div class="form-group row">
-                                                <label
-                                                    class="col-sm-3 text-right control-label col-form-label">Hobbies</label>
-                                                <div class="col-md-9">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="cricket"
-                                                            name="hobbies" value="Cricket"
-                                                            <%=admin.hobbies.includes("Cricket") ? "checked" : "" %>>
-                                                        <label class="custom-control-label"
-                                                            for="cricket">Cricket</label>
-                                                    </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="chess"
-                                                            name="hobbies" value="Chess"
-                                                            <%=admin.hobbies.includes("Chess") ? "checked" : "" %>>
-                                                        <label class="custom-control-label" for="chess">Chess</label>
-                                                    </div>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input"
-                                                            id="football" name="hobbies" value="Football"
-                                                            <%=admin.hobbies.includes("Football") ? "checked" : "" %>>
-                                                        <label class="custom-control-label"
-                                                            for="football">Football</label>
-                                                    </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" name="hobbies[]" value="traveling" <%= admin.hobbies.includes('traveling') ? 'checked' : '' %>>
+                                                    <label class="form-check-label">Traveling</label>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Submit Button -->
-                                        <div class="border-top">
-                                            <div class="card-body">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
-                                    </form>
-
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
-                        <!-- ============================================================== -->
-                        <!-- End PAge Content -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Right sidebar -->
-                        <!-- ============================================================== -->
-                        <!-- .right-sidebar -->
-                        <!-- ============================================================== -->
-                        <!-- End Right sidebar -->
-                        <!-- ============================================================== -->
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- End Container fluid  -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- footer -->
-                    <!-- ============================================================== -->
-                    <footer class="footer text-center">
-                        All Rights Reserved by Matrix-admin. Designed and Developed by <a
-                            href="https://wrappixel.com">WrapPixel</a>.
-                    </footer>
-                    <!-- ============================================================== -->
-                    <!-- End footer -->
-                    <!-- ============================================================== -->
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Page wrapper  -->
-                <!-- ============================================================== -->
+            </div>
+
+            <!-- Footer -->
+            <div class="py-6 px-6 text-center">
+                <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
+            </div>
+        </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="dist/js/custom.min.js"></script>
-    <!-- This Page JS -->
-    <script src="assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="dist/js/pages/mask/mask.init.js"></script>
-    <script src="assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="assets/libs/quill/dist/quill.min.js"></script>
-    <script>
-        //***********************************//
-        // For select 2
-        //***********************************//
-        $(".select2").select2();
 
-        /*colorpicker*/
-        $('.demo').each(function () {
-            //
-            // Dear reader, it's actually very easy to initialize MiniColors. For example:
-            //
-            //  $(selector).minicolors();
-            //
-            // The way I've done it below is just for the demo, so don't get confused
-            // by it. Also, data- attributes aren't supported at this time...they're
-            // only used for this demo.
-            //
-            $(this).minicolors({
-                control: $(this).attr('data-control') || 'hue',
-                position: $(this).attr('data-position') || 'bottom left',
-
-                change: function (value, opacity) {
-                    if (!value) return;
-                    if (opacity) value += ', ' + opacity;
-                    if (typeof console === 'object') {
-                        console.log(value);
-                    }
-                },
-                theme: 'bootstrap'
-            });
-
-        });
-        /*datwpicker*/
-        jQuery('.mydatepicker').datepicker();
-        jQuery('#datepicker-autoclose').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-
-    </script>
+    <!-- Scripts -->
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebarmenu.js"></script>
+    <script src="../assets/js/app.min.js"></script>
 </body>
-
 </html>
