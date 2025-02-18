@@ -9,7 +9,7 @@ passport.use(
             let admin = await schema.findOne({email:email});
             if (admin) {
                 if (password == admin.password) {
-                    return done(null,false);
+                    return done(null,admin);
                 } else {
                     return done(null,false);
                 }

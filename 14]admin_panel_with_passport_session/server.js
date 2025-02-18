@@ -7,8 +7,6 @@ const passport = require("passport");
 const session = require("express-session");
 const db = require('./config/dataBase')
 
-app.set('view engine', 'ejs')
-
 app.use(
   session({
     name:"local",
@@ -22,8 +20,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(cookie())
+app.set('view engine', 'ejs')
 app.use(express.urlencoded())
+app.use(cookie())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/upload', express.static(path.join(__dirname, 'upload')))
 

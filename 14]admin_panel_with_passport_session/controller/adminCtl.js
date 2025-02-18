@@ -1,4 +1,4 @@
-const schema = require('../model/adminModel')
+const schema = require("../model/adminModel");
 const fs = require('fs')
 
 module.exports.adminLogin = (req, res) => {
@@ -6,8 +6,8 @@ module.exports.adminLogin = (req, res) => {
 }
 
 module.exports.login = async (req, res) => {
-  await schema.findOne({}).then((data) => {   
-    if (data.email === req.body.email && data.password === req.body.password) {
+  await schema.findOne({}).then( data => {   
+    if (data.email == req.body.email && data.password == req.body.password) {
       res.redirect('/dashBoard')
     } else {
       res.redirect('/')
@@ -21,7 +21,6 @@ module.exports.logout = (req, res) => {
 }
 
 module.exports.dashBoard = (req, res) => {
-  console.log(res); // Check if 'render' is available on 'res'
   res.render("dashBoard");
 }
 
