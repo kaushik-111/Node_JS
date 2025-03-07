@@ -2,7 +2,9 @@ const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
 const schema = require("../model/adminModel");
 
-passport.use(new passportLocal({usernameField : "email"}, async(email, password, done) => {
+passport.use(
+    "local",
+    new passportLocal({usernameField : "email"}, async(email, password, done) => {
     let admin = await schema.findOne({email: email});
 
     if(admin){
@@ -31,6 +33,13 @@ passport.checkAuth = (req, res, next) => {
     }else{
         res.redirect("/");
     }
+}
+
+passport.AuthenticatedUser = (req,res,next)=>{
+    if(req.isAuthenticated()){
+        res.locals.user = req.user;
+    }
+    next();
 }
 
 module.exports = passport;

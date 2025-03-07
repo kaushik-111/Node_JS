@@ -16,15 +16,20 @@ const storage = multer.diskStorage({
 const upload = multer({storage : storage}).single("image");
 
 route.get("/", ctl.adminLogin);
-route.get("/dashboard", passport.checkAuth, ctl.dashboard);
-route.get("/adminForm", passport.checkAuth, ctl.adminForm);
-route.post("/addAdmin", upload, ctl.addAdmin);
+route.get("/dashboard",passport.checkAuth,  ctl.dashboard);
+route.get("/adminForm",passport.checkAuth, ctl.adminForm);
+route.post("/addAdmin",passport.checkAuth ,upload, ctl.addAdmin);
 route.get("/adminTable", passport.checkAuth, ctl.adminTable);
 route.get("/adminDelete/:id", passport.checkAuth, ctl.adminDelete);
 route.get("/adminEdit/:id", passport.checkAuth, ctl.adminEdit);
-route.post("/adminUpdate", upload, ctl.adminUpdate);
+route.post("/adminUpdate",passport.checkAuth, upload, ctl.adminUpdate);
 route.post("/login", passport.authenticate("local", {failureRedirect : "/"}), ctl.login)
 route.get("/logout", ctl.logout)
-
-
+route.get("/AdminProfile",passport.checkAuth,ctl.AdminProfile);
+route.get("/changePass",passport.checkAuth,ctl.changePass);
+route.post("/changePass",passport.checkAuth,ctl.changePassword);
+route.get("/forgetpassword",ctl.forgetpassword)
+route.post("/forgotpassword",ctl.forgotpassword)
+route.get("/forgototp",ctl.forgototp);
+route.post("/resetpassword",ctl.resetpassword)
 module.exports = route;

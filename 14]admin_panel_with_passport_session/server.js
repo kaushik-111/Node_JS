@@ -28,6 +28,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/upload", express.static(path.join(__dirname, "upload")));
 
 app.use("/", require("./route/route"));
+app.use("/category", require("./route/categoryRoute"));
+app.use("/subcategory",require("./route/subCategoryRoute"))
+app.use("/extraCategory",require("./route/extraCategoryRoute"))
+app.use("/product",require("./route/productRoute"))
 app.listen(port, err => {
     err ? console.log("Error : ", err) : console.log("Server is running on port : ", port)
 })

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/addData" method="post">
+        <label>Name</label> <br>
+        <input type="text" name="name" placeholder="Enter Your Name"><br>
+        <label>City</label><br>
+        <input type="text" name="city" placeholder="Enter Your city"> <br>
+        <input type="submit"placeholder='submit'>
+    </form>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((e) => { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.city %></td>
+                    <td>
+                        <a href="/editData/<%= e.id %>"><button>Edit</button></a>
+                        <a href="/deleteData?id=<%= e.id %>"><button class="delete-btn">Delete</button></a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

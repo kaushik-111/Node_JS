@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SeoDash Free Bootstrap locals.user Template by locals.usermart</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <%- include("./partial/sidebar.ejs")%>
+            <!--  Sidebar End -->
+            <!--  Main wrapper -->
+            <div class="body-wrapper">
+                <!--  Header Start -->
+                <%- include("./partial/header.ejs")%>
+                <!--  Header End -->
+                    <section class="vh-100" style="background-color: #f4f5f7;">
+                        <div class="container py-5 h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col col-lg-6 mb-4 mb-lg-0">
+                                    <div class="card mb-3" style="border-radius: .5rem;">
+                                        <div class="row g-0">
+                                            <div class="col-md-4 gradient-custom text-center text-white"
+                                                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                               
+                                                    <img src="<%= locals.user.image %>" alt="Avatar" class="img-fluid my-5"
+                                                        style="width: 80px; height: 80px; border-radius: 50%;" />
+                                                    <h5><%= locals.user.fname %> <%= locals.user.lname %></h5>
+                                                    <p><%= locals.user.bdate %></p>
+    
+                                                
+                                                <i class="far fa-edit mb-5"></i>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body p-4">
+                                                    <h6>Information</h6>
+                                                    <hr class="mt-0 mb-4">
+                                                    <div class="row pt-1">
+                                                        <div class="col-6 mb-3">
+                                                            <h6>Email</h6>
+                                                            <p class="text-muted">
+                                                                <%=locals.user.email%>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-6 mb-3">
+                                                            <h6>Phone</h6>
+                                                            <p class="text-muted">+91 <%=locals.user.pnumber%>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-6 mb-3">
+                                                            <h6>Gender</h6>
+                                                            <p class="text-muted">
+                                                                <%=locals.user.gender%>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-6 mb-3">
+                                                            <h6>City</h6>
+                                                            <p class="text-muted">
+                                                                <%=locals.user.city%>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-6 mb-3">
+                                                            <h6>Action</h6>
+                                                            <a href="/Editlocals.user/<%=locals.user.id%>">
+                                                                <button class="btn btn-link btn-sm btn-rounded">
+                                                                    Edit
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-start">
+                                                        <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                                                        <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                                                        <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </div>
+            <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+            <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+            <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+            <script src="../assets/js/sidebarmenu.js"></script>
+            <script src="../assets/js/app.min.js"></script>
+            <script src="../assets/js/dashboard.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>

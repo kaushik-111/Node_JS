@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+  <link rel="stylesheet" href="../../node_modules/simplebar/dist/simplebar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <%- include("./partial/sidebar.ejs")%>
+    <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <!--  Header Start -->
+        <%- include("./partial/header.ejs")%>
+          <!--  Header End -->
+          <div class="container-fluid">
+            <section class="vh-100">
+              <div class="container h-100">
+                <div class="row justify-content-center align-items-center h-100">
+                  <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                      <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Change Password Form</h3>
+                        <form method="post" action="/changePass">
+
+                          <div class="row">
+                            <div class="col-md-12 mb-4">
+
+                              <div data-mdb-input-init class="form-outline">
+                                <label class="form-label" for="firstName">Old Password</label>
+                                <input type="text" name="oldPass" placeholder="Enter Old Password" class="form-control form-control-lg" />
+                              </div>
+
+                            </div>
+                            <div class="col-md-12 mb-4">
+
+                              <div data-mdb-input-init class="form-outline">
+                                <label class="form-label" for="lastName">New Password</label>
+                                <input type="text" name="newPass" placeholder="Enter New Password" class="form-control form-control-lg" />
+                              </div>
+
+                            </div>
+                            <div class="col-md-12 mb-4">
+
+                              <div data-mdb-input-init class="form-outline">
+                                <label class="form-label" for="lastName">Confirm Password</label>
+                                <input type="text" name="confirmPass" placeholder="Enter Confirm Password" class="form-control form-control-lg" />
+                              </div>
+
+                            </div>
+                          </div>
+
+
+                          <div class="row">
+                            <div class=" pt-2">
+                              <input data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                            </div>
+
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <div class=" text-center">
+              <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
+                  class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a
+                  href="https://themewagon.com/" target="_blank"
+                  class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+            </div>
+          </div>
+      </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
+
+

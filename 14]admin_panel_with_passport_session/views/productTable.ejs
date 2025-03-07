@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logos/seodashlogo.png" />
+    <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <%- include("./partial/sidebar")%>
+            <!--  Sidebar End -->
+            <!--  Main wrapper -->
+            <div class="body-wrapper">
+                <!--  Header Start -->
+                <%- include("./partial/header")%>
+                    <!--  Header End -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="col-12 d-flex no-block align-items-center">
+                                    <h4 class="page-title">Admin Details</h4>
+                                </div>
+                                <div class="container-fluid">
+                                    <!-- ============================================================== -->
+                                    <!-- Start Page Content -->
+                                    <!-- ============================================================== -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title m-b-0">Admin Table</h5>
+                                                </div>
+                                                
+                                                <table class="table align-middle mb-0 bg-white">
+                                                    <thead class="bg-light">
+                                                        <tr>
+                                                            <th>Id</th>
+                                                            <th>Product Name</th>
+                                                            <th>Product Image</th>
+                                                            <th>Product Price</th>
+                                                            <th>Extra Cat Name</th>
+                                                            <th>Sub Cat Name</th>
+                                                            <th>Category Name</th>
+                                                            <th>Category Image</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <%data.map((e,i)=>{%>
+                                                            <tr>
+                                                                <td>
+                                                                    <%=i+1%>
+                                                                </td>
+                                                               <td>
+                                                                <%=e.productName%>
+                                                               </td>
+                                                               <td>
+                                                                <img src="/<%=e.productImage%>" style="width: 50px; height: 50px" alt="">
+                                                               </td>
+                                                               <td>
+                                                                <%=e.productPrice%>
+                                                               </td>
+                                                               <td>
+                                                                <%=e.extraCategoryTd.extCatName%>
+                                                               </td>
+                                                               <td>
+                                                                <%=e.extraCategoryTd.categoryId.subCatName%>
+                                                               </td>
+                                                               <td>
+                                                                <%=e.extraCategoryTd.categoryId.categoryId.categoryName%>
+                                                               </td>
+                                                               <td>
+                                                                <img src="/<%=e.extraCategoryTd.categoryId.categoryId.categoryImage%>" style="width: 50px; height: 50px" alt="">
+                                                               </td>
+                                                            </tr>
+                                                            <%})%>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ============================================================== -->
+                                    <!-- End PAge Content -->
+                                    <!-- ============================================================== -->
+                                    <!-- ============================================================== -->
+                                    <!-- Right sidebar -->
+                                    <!-- ============================================================== -->
+                                    <!-- .right-sidebar -->
+                                    <!-- ============================================================== -->
+                                    <!-- End Right sidebar -->
+                                    <!-- ============================================================== -->
+                                </div>
+                                <div class="py-6 px-6 text-center">
+                                    <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/"
+                                            target="_blank"
+                                            class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>Distributed
+                                        by <a href="https://themewagon.com/" target="_blank"
+                                            class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+                    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                    <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+                    <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+                    <script src="../assets/js/sidebarmenu.js"></script>
+                    <script src="../assets/js/app.min.js"></script>
+                    <script src="../assets/js/dashboard.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
