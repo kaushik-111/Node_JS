@@ -3,14 +3,14 @@ const nodemailer = require('nodemailer');
 const transport = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "kamalsagpariya7@gmail.com",
+        user: "pipaliyakaushik@gmail.com",
         pass: "axxdixdaxtwguesa"
     },
 });
 
 module.exports.sendOtp = (email, otp) => {
     let mailOptions = {
-        from: "kamalsagpariya7@gmail.com",
+        from: "pipaliyakaushik@gmail.com",
         to: email,
         subject: "OTP for forgot password",
         text: `Your OTP is ${otp}`
