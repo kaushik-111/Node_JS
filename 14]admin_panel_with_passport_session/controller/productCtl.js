@@ -15,18 +15,7 @@ module.exports.addProductData = async(req,res)=>{
 }
 
 module.exports.productTable = async(req,res)=>{
-    await productSchema
-    .find({})
-    .populate({
-        path:"extraCategoryTd",
-        populate:{
-            path:"categoryId",
-            populate:{
-                path:"categoryId"
-            }
-        }
-    })
-    .then((data)=>{
+    await productSchema.find({}).populate({ path:"extraCategoryTd", populate:{path:"categoryId",populate:{ path:"categoryId"}}}).then((data)=>{
         console.log(data);
         
         res.render("productTable",{data})
