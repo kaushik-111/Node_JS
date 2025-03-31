@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1c1c1e;
+            color: #f5f5f7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background: linear-gradient(145deg, #262628, #1f1f21);
+            border-bottom: 1px solid #ff6f61;
+        }
+        .navbar-brand, .nav-link {
+            color: #f5f5f7 !important;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ff6f61 !important;
+        }
+        .hero-section {
+            background: linear-gradient(145deg, #262628, #1f1f21);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+        .hero-section h1 {
+            color: #ff6f61;
+        }
+        .card {
+            background: #262628;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            color: #ff6f61;
+        }
+        .card-text {
+            color: #f5f5f7;
+        }
+        .btn-primary {
+            background-color: #ff6f61;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #ff5748;
+        }
+        .why-choose {
+            background: linear-gradient(145deg, #262628, #1f1f21);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+        .why-choose h2 {
+            color: #ff6f61;
+            margin-bottom: 2rem;
+        }
+        .why-choose .col-md-4 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .why-choose h5 {
+            color: #f5f5f7;
+            margin-bottom: 1rem;
+        }
+        .why-choose p {
+            color: #d3d3d3;
+        }
+        footer {
+            background: #1f1f21;
+            padding: 2rem 0;
+            color: #f5f5f7;
+            text-align: center;
+            border-top: 1px solid #ff6f61;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">MyBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addBlog">Add Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/viewBlog">View Blog</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white px-3" href="/logout">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="hero-section">
+            <h1>Welcome to MyBlog</h1>
+            <p>Your go-to platform for exciting blogs and articles.</p>
+            <a href="/signup" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Blog 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Title 1</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Blog 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Title 2</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Blog 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Title 3</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-choose">
+            <h2 class="text-center">Why Choose MyBlog?</h2>
+            <p class="text-center">We provide insightful articles and engaging content on a variety of topics to keep you informed and entertained.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Wide Variety of Topics</h5>
+                    <p>Explore articles ranging from technology to lifestyle, ensuring there's something for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Expert Writers</h5>
+                    <p>Our content is created by experienced writers to ensure quality and reliability.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Community Driven</h5>
+                    <p>Join our vibrant community of readers and share your thoughts through comments and feedback.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyBlog. All rights reserved.</p>
+            <p>Follow us on:
+                <a href="#" class="text-decoration-none">Facebook</a>,
+                <a href="#" class="text-decoration-none">Twitter</a>,
+                <a href="#" class="text-decoration-none">Instagram</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
